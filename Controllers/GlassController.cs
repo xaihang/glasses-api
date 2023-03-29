@@ -31,10 +31,10 @@ public class GlassController : ControllerBase
 
     // POST action
     [HttpPost]
-    public IActionResult Create(Glass glass)
+    public IActionResult Create(Glass newGlass)
     {            
         // This code will save the glass and return a result
-        GlassService.Add(glass);
+        GlassService.Add(newGlass);
         return CreatedAtAction(nameof(Get), new { id = glass.Id }, glass);
     }
 
@@ -52,6 +52,7 @@ public class GlassController : ControllerBase
         GlassService.Update(glass);           
    
         return NoContent();
+        // you can also return Ok() ~ 200 created
     }
 
     // DELETE 
